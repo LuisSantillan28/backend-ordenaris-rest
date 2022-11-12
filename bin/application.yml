@@ -78,8 +78,21 @@ dataSource:
 environments:
     development:
         dataSource:
+            pooled: true
             dbCreate: create-drop
-            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            logSql: true
+            # después de la definición de la ruta de base de datos se agregó esa línea ya que crashea por la zona horaria
+            url: jdbc:mysql://localhost:3307/ordenaris?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+            driverClassName: com.mysql.jdbc.Driver
+            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+            username: root
+            password: '1234'
+            properties:
+                jmxEnabled: true
+                initialSize: 5
+                maxActive: 50
+                minIdle: 5
+                maxIdle: 25
     test:
         dataSource:
             dbCreate: update
