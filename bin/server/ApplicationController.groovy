@@ -11,4 +11,13 @@ class ApplicationController implements PluginManagerAware {
     def index() {
         [grailsApplication: grailsApplication, pluginManager: pluginManager]
     }
+
+    // def delete() {
+    //     [grailsApplication: grailsApplication, pluginManager: pluginManager]
+    // }
+
+
+    //    def p = new Person(matricula: 12345, nombre: "Luis", direccion "Xochimilco 15B", birthday '2001-08-28')
+    //    p.save()    
+
 }
